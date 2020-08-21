@@ -36,6 +36,19 @@ package-lock.json
 gulpfile.js.int
 .vscode/launch.json
 
-jub-robotics/
 tmp/
+!jub-robotics/
+jub-robotics/*
+!jub-robotics/Bunker-Valentin-JUB-Robotics/
+jub-robotics/Bunker-Valentin-JUB-Robotics/*
+!jub-robotics/Bunker-Valentin-JUB-Robotics/birdeye-exterior/
+jub-robotics/Bunker-Valentin-JUB-Robotics/birdeye-exterior/*
+!jub-robotics/Bunker-Valentin-JUB-Robotics/birdeye-exterior/annotations/
+!jub-robotics/Bunker-Valentin-JUB-Robotics/birdeye-exterior/visualization.html
+!jub-robotics/Bunker-Valentin-JUB-Robotics/ruins-interior/
+jub-robotics/Bunker-Valentin-JUB-Robotics/ruins-interior/*
+!jub-robotics/Bunker-Valentin-JUB-Robotics/ruins-interior/annotations/
+!jub-robotics/Bunker-Valentin-JUB-Robotics/ruins-interior/visualization.html
+
+
 
