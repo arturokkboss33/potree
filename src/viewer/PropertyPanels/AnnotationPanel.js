@@ -9,12 +9,13 @@ export class AnnotationPanel{
 
 		this._update = () => { this.update(); };
 
+		let removeIconPath = Potree.resourcePath + '/icons/remove.svg';
 		let copyIconPath = `${Potree.resourcePath}/icons/copy.svg`;
 		this.elContent = $(`
 		<div class="propertypanel_content">
 			<table>
 				<tr>
-					<th colspan="3">position</th>
+					<th colspan="3">Annotation position</th>
 					<th></th>
 				</tr>
 				<tr>
@@ -25,12 +26,36 @@ export class AnnotationPanel{
 						<img name="copyPosition" title="copy" class="button-icon" src="${copyIconPath}" style="width: 16px; height: 16px"/>
 					</td>
 				</tr>
+				<tr>
+					<th colspan="3">Camera position</th>
+					<th></th>
+				</tr>
+				<tr>
+					<td align="center" id="annotation_camera_position_x" style="width: 25%"></td>
+					<td align="center" id="annotation_camera_position_y" style="width: 25%"></td>
+					<td align="center" id="annotation_camera_position_z" style="width: 25%"></td>
+					<td align="right" id="copy_annotation_camera_position" style="width: 25%">
+						<img name="copyCameraPosition" title="copy" class="button-icon" src="${copyIconPath}" style="width: 16px; height: 16px"/>
+					</td>
+				</tr>
+				<tr>
+					<th colspan="3">Camera target</th>
+					<th></th>
+				</tr>
+				<tr>
+					<td align="center" id="annotation_camera_target_x" style="width: 25%"></td>
+					<td align="center" id="annotation_camera_target_y" style="width: 25%"></td>
+					<td align="center" id="annotation_camera_target_z" style="width: 25%"></td>
+					<td align="right" id="copy_annotation_camera_target" style="width: 25%">
+						<img name="copyCameraTarget" title="copy" class="button-icon" src="${copyIconPath}" style="width: 16px; height: 16px"/>
+					</td>
+				</tr>
 
 			</table>
 
 			<div>
 
-				<div class="heading">Title</div>
+				<div class="heading">Title <img name="remove" class="button-icon" src="${removeIconPath}" style="width: 16px; height: 16px"/> </div>
 				<div id="annotation_title" contenteditable="true">
 					Annotation Title
 				</div>
@@ -58,6 +83,30 @@ export class AnnotationPanel{
 					{duration: 3000});
 		});
 
+		this.elCopyCameraPosition = this.elContent.find("img[name=copyCameraPosition]");
+		this.elCopyCameraPosition.click( () => {
+			let pos = this.annotation.cameraPosition.toArray();
+			let msg = pos.map(c => c.toFixed(3)).join(", ");
+			Utils.clipboardCopy(msg);
+
+			this.viewer.postMessage(
+					`Copied value to clipboard: <br>'${msg}'`,
+					{duration: 3000});
+			
+		});
+
+		this.elCopyCameraTarget = this.elContent.find("img[name=copyCameraTarget]");
+		this.elCopyCameraTarget.click( () => {
+			let pos = this.annotation.cameraTarget.toArray();
+			let msg = pos.map(c => c.toFixed(3)).join(", ");
+			Utils.clipboardCopy(msg);
+
+			this.viewer.postMessage(
+					`Copied value to clipboard: <br>'${msg}'`,
+					{duration: 3000});
+			
+		});
+
 		this.elTitle = this.elContent.find("#annotation_title").html(annotation.title);
 		this.elDescription = this.elContent.find("#annotation_description").html(annotation.description);
 
@@ -72,6 +121,11 @@ export class AnnotationPanel{
 			annotation.description = description;
 		}, false);
 
+		this.elRemove = this.elContent.find("img[name=remove]");
+		this.elRemove.click( () => {
+			this.viewer.scene.removeAnnotation(annotation);
+		})
+
 		this.update();
 	}
 
@@ -82,6 +136,16 @@ export class AnnotationPanel{
 		elContent.find("#annotation_position_x").html(pos[0]);
 		elContent.find("#annotation_position_y").html(pos[1]);
 		elContent.find("#annotation_position_z").html(pos[2]);
+
+		let camera_pos = annotation.cameraPosition.toArray().map(c => Utils.addCommas(c.toFixed(3)));
+		elContent.find("#annotation_camera_position_x").html(camera_pos[0]);
+		elContent.find("#annotation_camera_position_y").html(camera_pos[1]);
+		elContent.find("#annotation_camera_position_z").html(camera_pos[2]);
+
+		let target_pos = annotation.cameraTarget.toArray().map(c => Utils.addCommas(c.toFixed(3)));
+		elContent.find("#annotation_camera_target_x").html(target_pos[0]);
+		elContent.find("#annotation_camera_target_y").html(target_pos[1]);
+		elContent.find("#annotation_camera_target_z").html(target_pos[2]);
 
 		elTitle.html(annotation.title);
 		elDescription.html(annotation.description);
