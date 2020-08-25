@@ -1,0 +1,279 @@
+{
+	type: 'Potree',
+	version: 1.7,
+	settings: {
+		pointBudget: 1000000,
+		fov: 60,
+		edlEnabled: true,
+		edlRadius: 1.4,
+		edlStrength: 0.4,
+		background: 'gradient',
+		minNodeSize: 30,
+		showBoundingBoxes: false,
+	},
+	view: {
+		position: [
+			-66.38483762493381,
+			93.16364435993242,
+			62.963789979207874,
+		],
+		target: [
+			-18.449772269422937,
+			-10.48541077624256,
+			-1.7405649867491348,
+		],
+	},
+	classification: {
+		'0': {
+			visible: true,
+			name: 'never classified',
+			color: [
+				0.5,
+				0.5,
+				0.5,
+				1,
+			],
+		},
+		'1': {
+			visible: true,
+			name: 'unclassified',
+			color: [
+				0.5,
+				0.5,
+				0.5,
+				1,
+			],
+		},
+		'2': {
+			visible: true,
+			name: 'ground',
+			color: [
+				0.63,
+				0.32,
+				0.18,
+				1,
+			],
+		},
+		'3': {
+			visible: true,
+			name: 'low vegetation',
+			color: [
+				0,
+				1,
+				0,
+				1,
+			],
+		},
+		'4': {
+			visible: true,
+			name: 'medium vegetation',
+			color: [
+				0,
+				0.8,
+				0,
+				1,
+			],
+		},
+		'5': {
+			visible: true,
+			name: 'high vegetation',
+			color: [
+				0,
+				0.6,
+				0,
+				1,
+			],
+		},
+		'6': {
+			visible: true,
+			name: 'building',
+			color: [
+				1,
+				0.66,
+				0,
+				1,
+			],
+		},
+		'7': {
+			visible: true,
+			name: 'low point(noise)',
+			color: [
+				1,
+				0,
+				1,
+				1,
+			],
+		},
+		'8': {
+			visible: true,
+			name: 'key-point',
+			color: [
+				1,
+				0,
+				0,
+				1,
+			],
+		},
+		'9': {
+			visible: true,
+			name: 'water',
+			color: [
+				0,
+				0,
+				1,
+				1,
+			],
+		},
+		'12': {
+			visible: true,
+			name: 'overlap',
+			color: [
+				1,
+				1,
+				0,
+				1,
+			],
+		},
+		DEFAULT: {
+			visible: true,
+			name: 'default',
+			color: [
+				0.3,
+				0.6,
+				0.6,
+				0.5,
+			],
+		},
+	},
+	pointclouds: [
+		{
+			name: 'visualization',
+			url: 'pointclouds/visualization/cloud.js',
+			position: [
+				-170.71595645275164,
+				-270.72953108705843,
+				-133.5729625921212,
+			],
+			rotation: [
+				0,
+				0,
+				0,
+				'XYZ',
+			],
+			scale: [
+				1,
+				1,
+				1,
+			],
+			material: {
+				activeAttributeName: 'rgba',
+				ranges: [
+					{
+						name: 'elevationRange',
+						value: [
+							-133.5729625921212,
+							51.769231077081486,
+						],
+					},
+					{
+						name: 'intensityRange',
+						value: [
+							Infinity,
+							-Infinity,
+						],
+					},
+				],
+				size: 1,
+				minSize: 2,
+				pointSizeType: 'ADAPTIVE',
+				matcap: 'matcap.jpg',
+			},
+		},
+	],
+	measurements: [],
+	volumes: [],
+	cameraAnimations: [],
+	profiles: [],
+	annotations: [
+		{
+			uuid: '3A40E985-BD1B-4138-88C2-B9D98175B221',
+			title: 'Drehscheibe II',
+			description: 'Einrichtung zur Ausrichtung der U-Boot-Sektionen bei Anlieferung über die Weser. Der Bauplan zeigt u.a. Einbauten für die Winde (vgl. Ann. "Winde") [image] BPDrehscheibeII.jpg',
+			position: [
+				-21.12291821242762,
+				-116.49949180913677,
+				-1.1089221545315553,
+			],
+			offset: [
+				0,
+				0,
+				0,
+			],
+			children: [],
+			cameraPosition: [
+				-20.281618417031858,
+				-81.8489456615983,
+				5.787696292313463,
+			],
+			cameraTarget: [
+				-35.4180834981813,
+				-131.80398885985161,
+				5.643650062263575,
+			],
+		},
+		{
+			uuid: '932A4C5B-E6D6-47F6-9C1B-EA43231FE632',
+			title: 'Winde',
+			description: 'Vorrichtung zum Bewegen von Drehscheibe II [image] BPDrehscheibeDetailWinde.jpg',
+			position: [
+				-25.82358207745898,
+				-97.10608164368358,
+				-1.3772180588578635,
+			],
+			offset: [
+				0,
+				0,
+				0,
+			],
+			children: [],
+			cameraPosition: [
+				-12.720400574424566,
+				-105.84855927700752,
+				3.711852334916675,
+			],
+			cameraTarget: [
+				-19.398105385856965,
+				-99.21295867115083,
+				0.31504512343295143,
+			],
+		},
+		{
+			uuid: '836B978D-0F12-4518-8C9D-FE1396FF20C0',
+			title: 'Drehscheibe I',
+			description: 'Einrichtung zur Ausrichtung der U-Boot-Sektionen nach Anlieferung von Land- und Seeseite zur Taktstraße 1',
+			position: [
+				23.768123224612708,
+				-111.9169714835304,
+				-0.9796636015306319,
+			],
+			offset: [
+				0,
+				0,
+				0,
+			],
+			children: [],
+			cameraPosition: [
+				43.60358039527286,
+				-110.6052661186787,
+				15.583599395520032,
+			],
+			cameraTarget: [
+				27.041787389625515,
+				-102.73041836684808,
+				4.336032128500824,
+			],
+		},
+	],
+	orientedImages: [],
+	geopackages: [],
+}

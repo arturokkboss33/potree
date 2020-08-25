@@ -10,9 +10,9 @@
 
     <link rel="stylesheet" type="text/css" href="libs/potree/potree.css">
     <link rel="stylesheet" type="text/css" href="../../../libs/jquery-ui/jquery-ui.min.css">
-    <link rel="stylesheet" type="text/css" href="../../libs/openlayers3/ol.css">
-    <link rel="stylesheet" type="text/css" href="../../libs/spectrum/spectrum.css">
-    <link rel="stylesheet" type="text/css" href="../../libs/jstree/themes/mixed/style.css">
+    <link rel="stylesheet" type="text/css" href="../../../libs/openlayers3/ol.css">
+    <link rel="stylesheet" type="text/css" href="../../../libs/spectrum/spectrum.css">
+    <link rel="stylesheet" type="text/css" href="../../../libs/jstree/themes/mixed/style.css">
 </head>
 
 <body>
@@ -117,7 +117,7 @@
                 {
                     $.ajax({
                         type: "GET",
-                        url: "annotations/bunker_annotation.csv",
+                        url: "annotations/birdeye-exterior-annotations.csv",
                         dataType: "text",
                         success: function(data) {
                             extracted_csv = processData(data);
